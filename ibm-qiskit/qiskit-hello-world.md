@@ -4,7 +4,7 @@ Below are what I have followed.
 
 Set up can be done either 
 - Locally(on your personal system //TODO: Add more information
-- Using online tools like qbraid(https://docs.qbraid.com/home/introduction) - Qiskit Hellow World using qbraid [https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/qiskit-hw-qbraid.md]
+- Using online tools like qbraid(https://docs.qbraid.com/home/introduction) - [Qiskit Hellow World using qbraid](https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/qbraid/hello-world.md) 
 
 With either, steps are same at high level
 1. Environment set up - bare minimum libraries
