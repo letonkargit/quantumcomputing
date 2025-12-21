@@ -2,11 +2,11 @@ from qiskit.circuit.library import iqp
 from qiskit.transpiler import generate_preset_pass_manager
 from qiskit.quantum_info import random_hermitian
 from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
- 
+
 service = QiskitRuntimeService(token=<replace_with_yours>, # Use the 44-character API_KEY you created and saved from the IBM Quantum Platform Home dashboard
-            instance=<replace_with_yours>)
+           instance=<replace_with_yours>)
 backend = service.least_busy(
-    operational=True, simulator=False
+   operational=True, simulator=False
 )
 
 qasm_str = """
@@ -55,23 +55,22 @@ h q[7];
 
 circuit = QuantumCircuit.from_qasm_str(qasm_str)
 circuit.measure_all()
- 
+
 pm = generate_preset_pass_manager(backend=backend, optimization_level=1)
 isa_circuit = pm.run(circuit)
- 
+
 sampler = Sampler(backend)
 job = sampler.run([isa_circuit])
 result = job.result()
- 
-# Get results for the first (and only) PUB
+
 pub_result = result[0]
- 
+
 data = result[0].data
 print(f"Databin: {data}\n")
- 
-# to access the BitArray, use the key "meas", which is the default name of
-# the classical register when this is added by the `measure_all` method
+
 array = data.meas
 print(f"BitArray: {array}\n")
-print(f"The shape of register `meas` is {data.meas.array.shape}.\n")
-print(f"The bytes in register `alpha`, shot by shot:\n{data.meas.array}\n")
+print(f"The shape of register \`meas\` is {data.meas.array.shape}.\n")
+print(f"The bytes in register \`alpha\`, shot by shot:\n{data.meas.array}\n")
+
+<img width="1076" height="770" alt="image" src="https://github.com/user-attachments/assets/cd6e0734-140a-4cea-9453-41f1ef6cdd29" />
