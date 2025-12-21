@@ -1,0 +1,77 @@
+from qiskit.circuit.library import iqp
+from qiskit.transpiler import generate_preset_pass_manager
+from qiskit.quantum_info import random_hermitian
+from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
+ 
+service = QiskitRuntimeService(token=<replace_with_yours>, # Use the 44-character API_KEY you created and saved from the IBM Quantum Platform Home dashboard
+            instance=<replace_with_yours>)
+backend = service.least_busy(
+    operational=True, simulator=False
+)
+
+qasm_str = """
+OPENQASM 2.0;
+include "qelib1.inc";
+
+qreg q[8];
+creg c[6];
+
+h q[5];
+h q[7];
+cx q[5], q[0];
+h q[0];
+cx q[0], q[1];
+cx q[0], q[2];
+cx q[0], q[3];
+cx q[0], q[4];
+cx q[1], q[0];
+cx q[1], q[2];
+cx q[1], q[3];
+cx q[1], q[4];
+cx q[2], q[1];
+cx q[2], q[0];
+cx q[2], q[3];
+cx q[2], q[4];
+cx q[3], q[1];
+cx q[3], q[2];
+cx q[3], q[0];
+cx q[3], q[4];
+cx q[4], q[1];
+cx q[4], q[2];
+rx(pi) q[1];
+cx q[4], q[3];
+rx(pi) q[2];
+cx q[4], q[0];
+rx(pi) q[3];
+ry(pi) q[3];
+rz(pi) q[3];
+cx q[2], q[6];
+cx q[3], q[6];
+cx q[4], q[6];
+h q[6];
+cswap q[7], q[5], q[6];
+h q[7];
+"""
+
+circuit = QuantumCircuit.from_qasm_str(qasm_str)
+circuit.measure_all()
+ 
+pm = generate_preset_pass_manager(backend=backend, optimization_level=1)
+isa_circuit = pm.run(circuit)
+ 
+sampler = Sampler(backend)
+job = sampler.run([isa_circuit])
+result = job.result()
+ 
+# Get results for the first (and only) PUB
+pub_result = result[0]
+ 
+data = result[0].data
+print(f"Databin: {data}\n")
+ 
+# to access the BitArray, use the key "meas", which is the default name of
+# the classical register when this is added by the `measure_all` method
+array = data.meas
+print(f"BitArray: {array}\n")
+print(f"The shape of register `meas` is {data.meas.array.shape}.\n")
+print(f"The bytes in register `alpha`, shot by shot:\n{data.meas.array}\n")
