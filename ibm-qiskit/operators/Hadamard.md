@@ -44,3 +44,8 @@ Apply Hadamard on Qubit 1
 State after Hadamard is applied
 
 <kbd><img width="128" height="67" alt="image" src="https://github.com/user-attachments/assets/4e443ae1-8a1c-47c3-a4b3-00b2c1216c21" /></kbd>
+
+This is nothing but a |+> ket plus
+Below are the outcomes for the input qubits(copied from IBM site)<br>
+
+<kbd><img width="236" height="62" alt="image" src="https://github.com/user-attachments/assets/9f3031c0-2219-4317-b5f3-f5927641f05b" /></kbd>
