@@ -1,4 +1,10 @@
 ## Hadamard Operator
+Hadamard Operator is used to put qubit in superposition. Using this operator with CNOT gets 2 qubits in entangled state.
+Imports
+
+    from qiskit.quantum_info import Operator, Statevector
+    from qiskit import QuantumCircuit, QuantumRegister
+
 Define
       
       H = Operator([[1/np.sqrt(2), 1/np.sqrt(2)],[1/np.sqrt(2), -1/np.sqrt(2)]])
@@ -26,6 +32,7 @@ Look at state
 Apply Hadamard on Qubit 1
 
     qc.h(hdemo)
+    qc.draw("mpl")
 
 <kbd><img width="178" height="108" alt="image" src="https://github.com/user-attachments/assets/80f6d82c-442d-4122-a31c-b85c085fde20" /></kbd>
 
