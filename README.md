@@ -15,4 +15,10 @@ Begin with **Qiskit library installation** -
 
 **Operators -**
 
-[Hadamard](https://github.com/letonkargit/quantumcomputing/tree/main/ibm-qiskit/operators)
+> [Hadamard](https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/operators/Hadamard.md)
+
+> [PAULI X]
+
+> [PAULI Y]
+
+> [PAULI Z]
