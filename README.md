@@ -17,7 +17,7 @@ Begin with **Qiskit library installation** -
 
 > [Hadamard](https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/operators/Hadamard.md)
 
-> [PAULI X]
+> [PAULI X](https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/operators/PauliX.md)
 
 > [PAULI Y]
 
