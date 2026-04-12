@@ -1,15 +1,3 @@
-<Details>
-  <summary>Qiskit Library Installation</summary>
-        
-        pip install qiskit
-        
-        pip install qiskit-ibm-runtime
-        
-        pip install 'qiskit[visualization]'
-        
-        import numpy as np
-</Details>
-
 ## Hadamard Operator
 Define
       
