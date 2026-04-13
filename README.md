@@ -21,4 +21,4 @@ Begin with **Qiskit library installation** -
 
 > [PAULI Y](https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/operators/PauliY.md)
 
-> [PAULI Z]https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/operators/PauliZ.md)
+> [PAULI Z](https://github.com/letonkargit/quantumcomputing/blob/main/ibm-qiskit/operators/PauliZ.md)
